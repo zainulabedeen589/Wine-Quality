@@ -276,7 +276,7 @@ Wine Quality/
 Replace the placeholder with your actual repository URL.
 
 ```bash
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/zainulabedeen589/Wine-Quality.git
 cd Wine Quality
 ```
 
