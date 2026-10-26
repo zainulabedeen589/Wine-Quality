@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#21151b">
+  <title>Zainul Wine — Wine Quality Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#2d2025;--muted:#83767a;--wine:#672d43;--wine-dark:#351a28;--gold:#b58a58;--line:#e8ded9;--cream:#f8f5f0;--white:#fff;--shadow:0 22px 70px rgba(50,27,36,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+    .site-header{height:86px;padding:0 clamp(22px,5vw,90px);display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #efe9e5}
+    .brand{display:flex;align-items:center;gap:12px}.brand-mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;font-family:Georgia,serif;font-size:23px;color:var(--wine)}.brand-name{font-family:'Playfair Display',serif;font-size:23px;letter-spacing:.025em}.brand-caption{display:block;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.27em;color:var(--gold);margin-top:1px}.header-tag{font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+    .hero{position:relative;min-height:450px;background:linear-gradient(90deg,rgba(25,12,18,.92),rgba(31,14,23,.75) 49%,rgba(26,13,20,.2)),url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1800&q=85') center 55%/cover;display:flex;align-items:center;padding:70px clamp(24px,9vw,150px);color:white;overflow:hidden}
+    .hero:after{content:'';position:absolute;inset:16px;border:1px solid rgba(255,255,255,.15);pointer-events:none}.hero-content{position:relative;z-index:1;max-width:700px}.eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#d8b68d;display:flex;align-items:center;gap:14px}.eyebrow:before{content:'';height:1px;width:35px;background:#d8b68d}.hero h1{font:400 clamp(46px,6vw,82px)/1.09 'Playfair Display',serif;letter-spacing:-.035em;margin:23px 0}.hero h1 em{color:#e6c6a5;font-weight:400}.hero p{font-size:15px;line-height:1.9;color:#e6dadd;max-width:490px;margin:0}.hero-foot{margin-top:30px;font-size:11px;letter-spacing:.19em;color:#e8d2c0;text-transform:uppercase}
+    .main{max-width:1190px;margin:-54px auto 90px;padding:0 24px;position:relative;z-index:2}.workspace{display:grid;grid-template-columns:270px minmax(0,1fr);background:white;box-shadow:var(--shadow);border:1px solid #eee7e2;min-height:600px}
+    .sidebar{background:#f2ebe5;border-right:1px solid var(--line);padding:45px 30px}.side-kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700}.sidebar h2{font:400 31px/1.25 'Playfair Display',serif;margin:14px 0 18px}.sidebar p{font-size:13px;line-height:1.9;color:#776b6b}.side-rule{height:1px;background:#ded2cb;margin:30px 0}.steps{display:grid;gap:22px}.step{display:flex;align-items:center;gap:13px;font-size:12px;color:#817579}.step-num{width:32px;height:32px;border:1px solid #cdbdb1;border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--wine)}.step.active{font-weight:700;color:var(--wine)}.step.active .step-num{background:var(--wine);color:white;border-color:var(--wine)}.side-quote{margin-top:48px;font:italic 19px/1.55 'Playfair Display',serif;color:#775969}.side-quote:before{content:'“';display:block;color:var(--gold);font-size:48px;line-height:1}
+    .form-panel{padding:clamp(25px,5vw,60px)}.form-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.form-kicker{font-size:10px;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;font-weight:700}.form-top h2{font:400 clamp(28px,3vw,40px)/1.2 'Playfair Display',serif;margin:12px 0}.form-top p{font-size:13px;line-height:1.8;color:var(--muted);margin:0}.form-seal{flex-shrink:0;width:70px;height:70px;border:1px solid #ddcbbd;border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--wine);font:italic 13px/1.2 'Playfair Display',serif;transform:rotate(-12deg)}
+    .section{margin-top:36px}.section-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}.section-index{font:italic 19px 'Playfair Display',serif;color:var(--gold)}.section-title{font:500 18px 'Playfair Display',serif;white-space:nowrap}.section-line{height:1px;background:var(--line);flex:1}
+    .field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 22px}.field{display:flex;flex-direction:column;gap:9px}.field label{font-size:12px;font-weight:700;color:#4d4145}.field input{width:100%;height:50px;border:1px solid #e6dcd6;background:#fdfbf9;padding:0 15px;font:500 14px 'DM Sans',sans-serif;color:var(--ink);border-radius:4px;outline:none;transition:background .2s,border-color .2s,box-shadow .2s}.field input::placeholder{color:#b5a8a6}.field input:hover{border-color:#c9b4a5}.field input:focus{border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(181,138,88,.12)}.field small{color:#9b8d8c;font-size:10px}
+    .form-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid var(--line);margin-top:40px;padding-top:28px}.privacy{font-size:11px;color:var(--muted);line-height:1.7;max-width:270px}.submit-btn{appearance:none;border:0;border-radius:3px;background:var(--wine);color:#fff;padding:17px 28px;min-height:54px;font:700 11px 'DM Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;display:flex;gap:20px;align-items:center;justify-content:center}.submit-btn:hover{background:var(--wine-dark);transform:translateY(-2px);box-shadow:0 10px 22px rgba(103,45,67,.18)}.submit-btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.submit-btn:disabled{opacity:.7;cursor:wait;transform:none}.arrow{font-size:18px;line-height:1}.site-footer{padding:25px;text-align:center;font-size:11px;color:#968789;letter-spacing:.08em}
+    @media(max-width:850px){.workspace{grid-template-columns:1fr}.sidebar{display:none}.hero{min-height:390px}.main{margin-top:-32px}.form-panel{padding:35px}}
+    @media(max-width:520px){.site-header{height:72px}.header-tag{display:none}.hero{padding:60px 28px;min-height:360px}.hero h1{font-size:46px}.hero p{font-size:13px}.main{padding:0 12px;margin-bottom:45px}.form-panel{padding:27px 20px}.form-seal{display:none}.field-grid{grid-template-columns:1fr}.form-footer{flex-direction:column;align-items:stretch}.submit-btn{width:100%}.section{margin-top:30px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+    .result-panel{margin:30px 0 0;padding:24px;border:1px solid #ddcbbd;background:#fbf7f2;border-left:4px solid var(--gold)}.result-panel h3{font:400 26px 'Playfair Display',serif;margin:8px 0}.result-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}.result-score{font:500 48px 'Playfair Display',serif;color:var(--wine);margin-top:10px}.result-label{font-weight:700;color:var(--wine);margin:4px 0}.result-note,.result-panel p{font-size:13px;line-height:1.7;color:var(--muted)}.result-error{border-left-color:#a33131;background:#fff8f7}.result-error strong{color:#8f2525}.result-error p{margin-bottom:0}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Zainul Wine home"><span class="brand-mark" aria-hidden="true">Z</span><span><span class="brand-name">Zainul Wine</span><span class="brand-caption">WINE INTELLIGENCE</span></span></a>
+    <span class="header-tag">The Quality Atelier · Est. 2026</span>
+  </header>
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-content"><div class="eyebrow">A refined approach to analysis</div><h1 id="hero-title">The science of<br><em>exceptional wine.</em></h1><p>Where the timeless art of winemaking meets modern intelligence. Explore your wine's character through precise chemical analysis.</p><div class="hero-foot">Discover the quality within every drop</div></div>
+  </section>
+  <main class="main">
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Analysis guide"><div class="side-kicker">Your private atelier</div><h2>Every detail tells a story.</h2><p>Enter your wine's laboratory measurements to receive a model-based quality prediction.</p><div class="side-rule"></div><div class="steps"><div class="step active"><span class="step-num">01</span> Wine composition</div><div class="step"><span class="step-num">02</span> Quality prediction</div><div class="step"><span class="step-num">03</span> Your result</div></div><div class="side-quote">Excellence is found in the finest details.</div></aside>
+      <div class="form-panel"><div class="form-top"><div><div class="form-kicker">The tasting laboratory / 01</div><h2>Wine Quality Analysis</h2><p>Complete all 11 measurements to begin your prediction.</p></div><div class="form-seal" aria-hidden="true">Fine<br>Wine</div></div>
+        <form action="/predict" method="POST" id="wine-form">
+          <section class="section" aria-labelledby="acidity-heading"><div class="section-head"><span class="section-index">I.</span><h3 class="section-title" id="acidity-heading">Acidity &amp; Balance</h3><span class="section-line"></span></div><div class="field-grid">
+            <div class="field"><label for="fixed_acidity">Fixed Acidity</label><input type="number" step="any" name="fixed_acidity" id="fixed_acidity" placeholder="e.g. 7.4" value="{{ values.get('fixed_acidity', '') }}" required></div>
+            <div class="field"><label for="volatile_acidity">Volatile Acidity</label><input type="number" step="any" name="volatile_acidity" id="volatile_acidity" placeholder="e.g. 0.70" value="{{ values.get('volatile_acidity', '') }}" required></div>
+            <div class="field"><label for="citric_acid">Citric Acid</label><input type="number" step="any" name="citric_acid" id="citric_acid" placeholder="e.g. 0.00" value="{{ values.get('citric_acid', '') }}" required></div>
+            <div class="field"><label for="pH">pH Level</label><input type="number" step="any" name="pH" id="pH" placeholder="e.g. 3.51" value="{{ values.get('pH', '') }}" required></div>
+          </div></section>
+          <section class="section" aria-labelledby="composition-heading"><div class="section-head"><span class="section-index">II.</span><h3 class="section-title" id="composition-heading">Chemical Composition</h3><span class="section-line"></span></div><div class="field-grid">
+            <div class="field"><label for="residual_sugar">Residual Sugar</label><input type="number" step="any" name="residual_sugar" id="residual_sugar" placeholder="e.g. 1.9" value="{{ values.get('residual_sugar', '') }}" required></div>
+            <div class="field"><label for="chlorides">Chlorides</label><input type="number" step="any" name="chlorides" id="chlorides" placeholder="e.g. 0.076" value="{{ values.get('chlorides', '') }}" required></div>
+            <div class="field"><label for="free_sulfur_dioxide">Free Sulfur Dioxide</label><input type="number" step="any" name="free_sulfur_dioxide" id="free_sulfur_dioxide" placeholder="e.g. 11" value="{{ values.get('free_sulfur_dioxide', '') }}" required></div>
+            <div class="field"><label for="total_sulfur_dioxide">Total Sulfur Dioxide</label><input type="number" step="any" name="total_sulfur_dioxide" id="total_sulfur_dioxide" placeholder="e.g. 34" value="{{ values.get('total_sulfur_dioxide', '') }}" required></div>
+          </div></section>
+          <section class="section" aria-labelledby="profile-heading"><div class="section-head"><span class="section-index">III.</span><h3 class="section-title" id="profile-heading">Wine Profile</h3><span class="section-line"></span></div><div class="field-grid">
+            <div class="field"><label for="density">Density</label><input type="number" step="any" name="density" id="density" placeholder="e.g. 0.9978" value="{{ values.get('density', '') }}" required></div>
+            <div class="field"><label for="sulphates">Sulphates</label><input type="number" step="any" name="sulphates" id="sulphates" placeholder="e.g. 0.56" value="{{ values.get('sulphates', '') }}" required></div>
+            <div class="field"><label for="alcohol">Alcohol</label><input type="number" step="any" name="alcohol" id="alcohol" placeholder="e.g. 9.4" value="{{ values.get('alcohol', '') }}" required><small>Enter alcohol content as a percentage.</small></div>
+          </div></section>
+          {% if error %}
+          <div class="result-panel result-error" role="alert"><strong>Prediction could not be completed</strong><p>{{ error }}</p></div>
+          {% endif %}
+          {% if prediction is not none %}
+          <div class="result-panel" role="status" aria-live="polite"><div class="result-kicker">Analysis complete</div><h3>Your wine quality result</h3><div class="result-score">{{ prediction.score }}</div><p class="result-label">{{ prediction.label }}</p>{% if prediction.note %}<p class="result-note">{{ prediction.note }}</p>{% endif %}</div>
+          {% endif %}
+          <div class="form-footer"><div class="privacy">Your measurements are submitted securely to your application's prediction endpoint. Results depend on your trained model.</div><button type="submit" class="submit-btn" id="predict-btn"><span id="btn-label">Reveal Wine Quality</span><span class="arrow" aria-hidden="true">↗</span></button></div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">Zainul Wine &nbsp; · &nbsp; THE ART OF WINE INTELLIGENCE</footer>
+  <script>
+    const form = document.getElementById('wine-form');
+    const button = document.getElementById('predict-btn');
+    form.addEventListener('submit', function () {
+      if (!form.checkValidity()) return;
+      button.disabled = true;
+      document.getElementById('btn-label').textContent = 'Analyzing Wine…';
+    });
+  </script>
+</body>
+</html>
